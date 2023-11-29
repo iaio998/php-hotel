@@ -2,6 +2,16 @@
 <?php
 include __DIR__ . '/partials/header.php';
 
+if (isset($_GET['parking'])) {
+    $parking = $_GET['parking'];
+    foreach ($hotels as $value) {
+        if ($value['parking'] === (bool) $parking) {
+            $temp_arr[] = $value;
+        }
+    }
+    $hotels = $temp_arr;
+}
+;
 //var_dump($hotels)
 ?>
 <!-- MAIN -->
@@ -9,31 +19,33 @@ include __DIR__ . '/partials/header.php';
     <table class="table">
         <thead>
             <tr>
-                <?php foreach ($hotels as $key => $value) { ?>
-                    <th scope="col">
-                        <?php echo $key ?>
-                    </th>
-                <?php } ?>
+
+                <th scope="col">
+                    Name
+                </th>
+                <th scope="col">
+                    Description
+                </th>
+                <th scope="col">
+                    Parking
+                </th>
+                <th scope="col">
+                    Vote
+                </th>
+                <th scope="col">
+                    From center
+                </th>
+
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($hotels as $key => $value) { ?>
+            <?php foreach ($hotels as $hotel) { ?>
                 <tr>
-                    <td>
-                        <?php echo $value['name'] ?>
-                    </td>
-                    <td>
-                        <?php echo $value['description'] ?>
-                    </td>
-                    <td>
-                        <?php echo $value['parking'] ?>
-                    </td>
-                    <td>
-                        <?php echo $value['vote'] ?>
-                    </td>
-                    <td>
-                        <?php echo $value['distance_to_center'] . ' km' ?>
-                    </td>
+                    <?php foreach ($hotel as $val) { ?>
+                        <td>
+                            <?php echo $val ?>
+                        </td>
+                    <?php } ?>
                 </tr>
             <?php } ?>
         </tbody>

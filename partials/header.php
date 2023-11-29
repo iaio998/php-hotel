@@ -26,4 +26,16 @@ include __DIR__ . '/../Model/db.php';
     <div>
         <header class="container">
             <h1>Hotels</h1>
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Navbar</a>
+                    <form class="d-flex" role="search" method="GET">
+                        <select name="parking" class="form-select" aria-label="Default select example">
+                            <option value="1">Parking available</option>
+                            <option value="0">Parking not available</option>
+                        </select>
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
         </header>
