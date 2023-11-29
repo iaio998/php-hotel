@@ -1,39 +1,45 @@
+<!-- HEADER -->
 <?php
 include __DIR__ . '/partials/header.php';
 
-var_dump($hotels)
-    ?>
+//var_dump($hotels)
+?>
+<!-- MAIN -->
 <main class="container">
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <?php foreach ($hotels as $key => $value) { ?>
+                    <th scope="col">
+                        <?php echo $key ?>
+                    </th>
+                <?php } ?>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            <?php foreach ($hotels as $key => $value) { ?>
+                <tr>
+                    <td>
+                        <?php echo $value['name'] ?>
+                    </td>
+                    <td>
+                        <?php echo $value['description'] ?>
+                    </td>
+                    <td>
+                        <?php echo $value['parking'] ?>
+                    </td>
+                    <td>
+                        <?php echo $value['vote'] ?>
+                    </td>
+                    <td>
+                        <?php echo $value['distance_to_center'] . ' km' ?>
+                    </td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
 </main>
+<!-- FOOTER -->
 <?php
 include __DIR__ . '/partials/footer.php'
     ?>
