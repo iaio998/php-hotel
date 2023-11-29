@@ -4,12 +4,11 @@ include __DIR__ . '/partials/header.php';
 
 if (isset($_GET['parking'])) {
     $parking = $_GET['parking'];
-    foreach ($hotels as $value) {
-        if ($value['parking'] === (bool) $parking) {
-            $temp_arr[] = $value;
-        }
-    }
-    $hotels = $temp_arr;
+    $hotels = array_filter($hotels, fn($el) => $parking == 'all' || $el['parking'] == $parking);
+}
+if (isset($_GET['vote'])) {
+    $vote = $_GET['vote'];
+    $hotels = array_filter($hotels, fn($el) => $vote == 'all' || $el['vote'] >= $vote);
 }
 ;
 //var_dump($hotels)

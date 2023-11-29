@@ -28,11 +28,20 @@ include __DIR__ . '/../Model/db.php';
             <h1>Hotels</h1>
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand">Navbar</a>
+                    <a class="navbar-brand">Booltels</a>
                     <form class="d-flex" role="search" method="GET">
                         <select name="parking" class="form-select" aria-label="Default select example">
+                            <option value="all">All</option>
                             <option value="1">Parking available</option>
                             <option value="0">Parking not available</option>
+                        </select>
+                        <select name="vote" class="form-select" aria-label="Default select example">
+                            <option value="all">All</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                         <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
